@@ -27,15 +27,29 @@ int main(void)
 	
 	//Code:
 	
-	
-	
-	
-	
+	DDRA |= (1 << DDA0);
+	//PORTA |= (1 << DDA0);
+	char temp = 'a';
 	//D
     while(1)
     {
         //TODO:: Please write your application code 
-		UART_transmit('a');
-    }
+		//printf("Hello world!");
+		
+		temp = UART_recieve();
+		switch(temp){
+		
+			case 'a':{
+				PORTA |= (1 << DDA0);
+				break;
+			}
+			case 'b':{
+				PORTA &= !(1 << DDA0);
+				break;
+			}
+			
+		}
+		
+	}
 }
 
