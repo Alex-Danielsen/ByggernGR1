@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ByggernGR1", "ByggernGR1\ByggernGR1.cproj", "{D61A26E2-B422-4ACA-9F94-284CAE338AA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D61A26E2-B422-4ACA-9F94-284CAE338AA7}.Debug|AVR.ActiveCfg = Debug|AVR
+		{D61A26E2-B422-4ACA-9F94-284CAE338AA7}.Debug|AVR.Build.0 = Debug|AVR
+		{D61A26E2-B422-4ACA-9F94-284CAE338AA7}.Release|AVR.ActiveCfg = Release|AVR
+		{D61A26E2-B422-4ACA-9F94-284CAE338AA7}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
