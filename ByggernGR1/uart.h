@@ -18,6 +18,8 @@ void UART_transmit(unsigned char arg);
 
 void UART_parsePrint();
 
+void UART_test();
+
 
 
 #endif /* UART_H_ */

@@ -1,0 +1,7 @@
+C:\ispLEVER_Classic2_0\synpbase\bin64\syn_nfilter.exe  -link  -top  address_decoder  -multisrs  "C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synwork\address_decoder_comp.srs"  -osyn  "C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synwork\address_decoder_mult.srs"  -log  "C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synlog\address_decoder_multi_srs_gen.srr" 
+rc:0 success:1
+C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synwork\address_decoder_comp.srs|i|1473172604|1749
+C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synwork\address_decoder_mult.srs|o|1473172605|1666
+C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\synlog\address_decoder_multi_srs_gen.srr|o|1473172605|376
+C:\ispLEVER_Classic2_0\synpbase\bin\syn_nfilter.exe|i|1401223936|2741760
+C:\ispLEVER_Classic2_0\synpbase\bin64\syn_nfilter.exe|i|1401224132|6337536

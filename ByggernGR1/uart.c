@@ -41,3 +41,31 @@ void UART_transmit(unsigned char arg){
 void UART_parsePrint(){
 	fdevopen(UART_transmit, UART_recieve);
 }
+
+
+void UART_test(){
+	DDRA |= (1 << DDA0);
+	//PORTA |= (1 << DDA0);
+	char temp = 'a';
+	//D
+	while(1)
+	{
+		//TODO:: Please write your application code
+		//printf("Hello world!");
+	
+		temp = UART_recieve();
+		switch(temp){
+		
+			case 'a':{
+				PORTA |= (1 << DDA0);
+				break;
+			}
+			case 'b':{
+				PORTA &= !(1 << DDA0);
+				break;
+			}
+		
+		}
+	
+	}
+}

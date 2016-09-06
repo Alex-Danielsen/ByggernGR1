@@ -38,6 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
+../mem.c \
 ../uart.c
 
 
@@ -49,18 +50,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
+mem.o \
 uart.o
 
 OBJS_AS_ARGS +=  \
 main.o \
+mem.o \
 uart.o
 
 C_DEPS +=  \
 main.d \
+mem.d \
 uart.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
+mem.d \
 uart.d
 
 OUTPUT_FILE_PATH +=ByggernGR1.elf
@@ -77,6 +82,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
