@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version I-2014.03LC 
-#--  Project file C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\run_options.txt
-#--  Written on Tue Sep 06 16:36:44 2016
+#--  Project file C:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\gal\run_options.txt
+#--  Written on Tue Sep 13 14:29:13 2016
 
 
 #project files
@@ -9,8 +9,8 @@ add_file -vhdl -lib work "./galdecode.vhd"
 
 
 
-#implementation: "byggerngr1"
-impl -add byggerngr1 -type fpga
+#implementation: "gal"
+impl -add gal -type fpga
 
 #device options
 set_option -technology ispGAL
@@ -52,5 +52,5 @@ set_option -write_apr_constraint 1
 project -result_file "./address_decoder.edi"
 
 #set log file 
-set_option log_file "C:/users/nikolasn/documents/atmel studio/6.2/byggerngr1/address_decoder.srf" 
-impl -active "byggerngr1"
+set_option log_file "C:/users/nikolasn/documents/atmel studio/6.2/byggerngr1/gal/address_decoder.srf" 
+impl -active "gal"

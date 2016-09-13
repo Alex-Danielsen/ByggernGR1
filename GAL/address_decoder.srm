@@ -27,7 +27,7 @@ f "c:\isplever_classic2_0\synpbase\lib\vhd\unsigned.vhd"; #file 6
 af  .is_vhdl 1;
 af  .child_list "-1";
 af  .parent_list "-1";
-f "c:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\galdecode.vhd"; #file 7
+f "c:\users\nikolasn\documents\atmel studio\6.2\byggerngr1\gal\galdecode.vhd"; #file 7
 af  .is_vhdl 1;
 af  .child_list "-1";
 af  .parent_list "-1";
@@ -96,7 +96,7 @@ RNP3FVDIM_kHHJkV8HCR
 };N#PR$HM_#GlHCN8DM4oR;P
 NR$3#MV_l#s_oF_kbHj8R;P
 NR$3#Mk_MlNOEsd#RU
-c;N3PR#_$MD	HMC8sHRw"{4.(qd-qUgjdj- cd4j-gw4 -( g4(qBdg}q4"N;
+c;N3PR#_$MD	HMC8sHRd"{.B.( - 47UB -.cdnA-qdc7-BAABjnUAA}jj"N;
 POR38#L_NRPC{P
 NRM#$_VsCCMsCOOC_D	FORN{
 P$R1#l0CRN{
@@ -135,24 +135,26 @@ QNj=8OO_#;_O
 fsRjR:jlENORzmAwsRbHFlRD_C8OS#
 mD=FCO8_#Q
 SjD=FCO8_#;_O
-fsRjR:jlENOR7qh.sRbHNlR8OO_#8NM
-=SmN_8OOO#_
-jSQ=jN4_SO
-QN4=4H4_;R
-sfjj:ROlNEhRQesRbHNlR4Hj_
-=SmN_4jHQ
-Sj4=Nj;_O
-fsRjR:jlENOReQhRHbsl4RN4
-_HSNm=4H4_
-jSQ=4N4_
-O;sjRf:ljRNROEq.h7RHbslDRFCO8_#8NM
-=SmF8DC__O#OQ
+fsRjR:jlENOR7qh.sRbHNlR8OO_#
+FsSNm=8OO_#__OjQ
 Sj4=Nj
-_HS=Q4N_44Hb;
-R:fjjNRVDR#CtRh7t;h7
-fbRjR:j0CskRBeBRBeB;
-
-
+_OS=Q4N_44Hs;
+R:fjjNRlOQERhbeRsRHlN_4jHm
+S=jN4_SH
+QNj=4Oj_;R
+sfjj:ROlNEhRQesRbHNlR4H4_
+=SmN_44HQ
+Sj4=N4;_O
+fsRjR:jlENOR7qh.sRbHFlRD_C8OM#N8m
+S=CFD8#_O_SO
+QNj=4Hj_
+4SQ=4N4_
+H;sjRf:ljRNROEQRheblsHRON8_FO#s
+_HSNm=8OO_#
+_OS=QjN_8OOO#__
+j;bjRf:VjRNCD#R7thR7th;R
+bfjj:Rk0sCBReBBReB
+;
 
 
 @ 

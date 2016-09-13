@@ -32,7 +32,7 @@ end address_decoder;
 architecture behave of address_decoder is begin
 	--implement the functionality here
 	oled_cs <= (NOT a11) AND (NOT a10);
-	adc_cs  <= (NOT a11) AND a10;
+	adc_cs  <= a11 OR NOT a10;
 	ram_cs  <= a11;
 end behave;
 

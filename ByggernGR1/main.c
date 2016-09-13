@@ -8,9 +8,13 @@
 
 //Include built in libs:
 #include <avr/io.h>
+#include <avr/delay.h>
 
 //Include files:
 #include "uart.h"
+#include "mem.h"
+#include "adc.h"
+#include "joy.h"
 
 //Defined values
 #define FOSC 4915200
@@ -27,6 +31,17 @@ int main(void)
 	mem_init();
 	
 	//Code:
-	mem_test();
-	//mem_testLatch();
+	
+	joy_cal();
+	while(1){
+		 
+		 
+		 
+		//printf(" %d\n",joy_getDir());
+		printf("Left: %d Right: %d Joy: %d\n",joy_getButtonValue(LEFT_BUTTON), joy_getButtonValue(RIGHT_BUTTON), joy_getButtonValue(JOYSTICK_BUTTON));
+		printf("Left: %d Right: %d\n", joy_sliderLeft(), joy_sliderRight());
+		_delay_ms(100);
+	}
+	
+	
 }

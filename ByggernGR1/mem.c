@@ -64,3 +64,4 @@ void mem_testLatch() {
 	
 	extRam[0x01] = someValue;
 }
+

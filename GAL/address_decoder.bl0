@@ -1,11 +1,11 @@
-#$ DATE Tue Sep 06 16:36:50 2016
+#$ DATE Tue Sep 13 14:29:20 2016
 #$ TOOL EDIF2BLIF version IspLever 1.0 
 #$ MODULE address_decoder
 #$ PINS 5 a11:1'ke'  a10:2'ke'  ram_cs:19'ke'  adc_cs:18'ke'  oled_cs:17'ke' 
-#$ NODES 6 a10_i a11_i a11_c a10_c adc_cs_c oled_cs_c 
+#$ NODES 7 a10_i a11_i a11_c a10_c adc_cs_c oled_cs_c adc_cs_c_0 
 .model address_decoder
-.inputs a11.BLIF a10.BLIF a10_i.BLIF a11_i.BLIF a11_c.BLIF a10_c.BLIF adc_cs_c.BLIF oled_cs_c.BLIF  
-.outputs ram_cs adc_cs oled_cs a10_i a11_i a11_c a10_c adc_cs_c oled_cs_c
+.inputs a11.BLIF a10.BLIF a10_i.BLIF a11_i.BLIF a11_c.BLIF a10_c.BLIF adc_cs_c.BLIF oled_cs_c.BLIF adc_cs_c_0.BLIF  
+.outputs ram_cs adc_cs oled_cs a10_i a11_i a11_c a10_c adc_cs_c oled_cs_c adc_cs_c_0
 .names  a11.BLIF a11_c
 1 1
 .names  a10.BLIF a10_c
@@ -16,7 +16,7 @@
 1 1
 .names  oled_cs_c.BLIF oled_cs
 1 1
-.names  a10_c.BLIF a11_i.BLIF adc_cs_c
+.names  a10_c.BLIF a11_i.BLIF adc_cs_c_0
 11 1
 .names  a10_c.BLIF a10_i
 0 1
@@ -24,4 +24,6 @@
 0 1
 .names  a10_i.BLIF a11_i.BLIF oled_cs_c
 11 1
+.names  adc_cs_c_0.BLIF adc_cs_c
+0 1
 .end

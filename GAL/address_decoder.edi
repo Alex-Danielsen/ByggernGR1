@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timeStamp 2016 9 6 16 36 46)
+      (timeStamp 2016 9 13 14 29 15)
       (author "Synopsys, Inc.")
       (program "Synplify Pro" (version "I-2014.03LC , mapper maplat, Build 923R"))
      )
@@ -74,10 +74,11 @@
           (instance ram_cs (viewRef prim (cellRef OBUF (libraryRef mach)))          )
           (instance adc_cs (viewRef prim (cellRef OBUF (libraryRef mach)))          )
           (instance oled_cs (viewRef prim (cellRef OBUF (libraryRef mach)))          )
-          (instance adc_csand (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance adc_csor (viewRef prim (cellRef AND2 (libraryRef mach)))          )
           (instance a10_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance a11_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (instance oled_csand (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance adc_csor_i (viewRef prim (cellRef INV (libraryRef mach)))          )
           (net a10_i (joined
            (portRef O (instanceRef a10_i))
            (portRef I0 (instanceRef oled_csand))
@@ -85,7 +86,7 @@
           (net a11_i (joined
            (portRef O (instanceRef a11_i))
            (portRef I1 (instanceRef oled_csand))
-           (portRef I1 (instanceRef adc_csand))
+           (portRef I1 (instanceRef adc_csor))
           ))
           (net a11_c (joined
            (portRef O (instanceRef a11))
@@ -99,7 +100,7 @@
           (net a10_c (joined
            (portRef O (instanceRef a10))
            (portRef I0 (instanceRef a10_i))
-           (portRef I0 (instanceRef adc_csand))
+           (portRef I0 (instanceRef adc_csor))
           ))
           (net a10 (joined
            (portRef a10)
@@ -110,7 +111,7 @@
            (portRef ram_cs)
           ))
           (net adc_cs_c (joined
-           (portRef O (instanceRef adc_csand))
+           (portRef O (instanceRef adc_csor_i))
            (portRef I0 (instanceRef adc_cs))
           ))
           (net adc_cs (joined
@@ -124,6 +125,10 @@
           (net oled_cs (joined
            (portRef O (instanceRef oled_cs))
            (portRef oled_cs)
+          ))
+          (net adc_cs_c_0 (joined
+           (portRef O (instanceRef adc_csor))
+           (portRef I0 (instanceRef adc_csor_i))
           ))
          )
         (property orig_inst_of (string "address_decoder"))
