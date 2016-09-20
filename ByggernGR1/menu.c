@@ -21,7 +21,7 @@ menu_t* mainMenuChildren[] = {&settingsMenu};
 menu_t mainMenu = {
 	.name = "MainMenu",
 	.parrent = NULL,
-	.numOfChilds = 0,
+	.numOfChilds = 1,
 	.child = mainMenuChildren,
 };
 
