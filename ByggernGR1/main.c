@@ -15,6 +15,8 @@
 #include "mem.h"
 #include "adc.h"
 #include "joy.h"
+#include "oled.h"
+#include "menu.h"
 
 //Defined values
 #define FOSC 4915200
@@ -29,19 +31,20 @@ int main(void)
 	UART_init(MYUBRR);
 	UART_parsePrint();
 	mem_init();
+	oled_init();
+	//menu_init();
 	
 	//Code:
+	//char* yolo = "haha";
+	//oled_printString("Yolo %i", 5);
+	oled_printCharPtr("YOLOFISH");
 	
-	joy_cal();
-	while(1){
-		 
-		 
-		 
-		//printf(" %d\n",joy_getDir());
-		printf("Left: %d Right: %d Joy: %d\n",joy_getButtonValue(LEFT_BUTTON), joy_getButtonValue(RIGHT_BUTTON), joy_getButtonValue(JOYSTICK_BUTTON));
-		printf("Left: %d Right: %d\n", joy_sliderLeft(), joy_sliderRight());
-		_delay_ms(100);
+	while(1)
+	{
+		
 	}
+	
+	
 	
 	
 }

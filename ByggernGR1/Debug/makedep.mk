@@ -10,5 +10,9 @@ main.c
 
 mem.c
 
+menu.c
+
+oled.c
+
 uart.c
 

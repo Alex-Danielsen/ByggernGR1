@@ -1,19 +1,21 @@
 #$ TOOL ispLEVER Classic 2.0.00.17.20.15
-#$ DATE Tue Sep 13 14:29:20 2016
+#$ DATE Tue Sep 20 18:20:58 2016
 #$ MODULE address_decoder
 #$ DEVICE p16v8
-#$ PINS 5 a11:1 a10:2 ram_cs-:19 adc_cs-:18 oled_cs-:17
-.i 2 
-.o 3 
+#$ PINS 7 a11:1 a10:2 a9:3 ram_cs-:19 adc_cs-:18 oled_cs-:17 oled_dc-:16
+.i 3 
+.o 4 
 .type fr
-.ilb a11 a10
-.ob ram_cs adc_cs oled_cs
-.phase 111
-.p 6
-1- 110
--0 ~1~
-00 ~~1
-0- 0~~
--1 ~~0
-01 ~0~
+.ilb a11 a10 a9
+.ob ram_cs adc_cs oled_cs oled_dc
+.phase 1111
+.p 8
+1-- 1110
+-1- ~~10
+-0- ~1~~
+001 ~~~1
+0-- 0~~~
+01- ~0~~
+00- ~~0~
+--0 ~~~0
 .e

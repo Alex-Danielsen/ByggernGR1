@@ -10,7 +10,7 @@
 #define FONT_4X6_H_
 #include <avr/pgmspace.h>
 
-unsigned char PROGMEM font_4x6[95][4] = {
+unsigned char PROGMEM const font_4x6[95][4] = {
 	{0b00000000,0b00000000,0b00000000,0b00000000}, //
 	{0b00000000,0b01011100,0b00000000,0b00000000}, // !
 	{0b00001100,0b00000000,0b00001100,0b00000000}, // "

@@ -41,6 +41,8 @@ C_SRCS +=  \
 ../joy.c \
 ../main.c \
 ../mem.c \
+../menu.c \
+../oled.c \
 ../uart.c
 
 
@@ -55,6 +57,8 @@ adc.o \
 joy.o \
 main.o \
 mem.o \
+menu.o \
+oled.o \
 uart.o
 
 OBJS_AS_ARGS +=  \
@@ -62,6 +66,8 @@ adc.o \
 joy.o \
 main.o \
 mem.o \
+menu.o \
+oled.o \
 uart.o
 
 C_DEPS +=  \
@@ -69,6 +75,8 @@ adc.d \
 joy.d \
 main.d \
 mem.d \
+menu.d \
+oled.d \
 uart.d
 
 C_DEPS_AS_ARGS +=  \
@@ -76,6 +84,8 @@ adc.d \
 joy.d \
 main.d \
 mem.d \
+menu.d \
+oled.d \
 uart.d
 
 OUTPUT_FILE_PATH +=ByggernGR1.elf
@@ -92,6 +102,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
