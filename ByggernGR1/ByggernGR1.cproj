@@ -115,6 +115,9 @@
     <Compile Include="adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="font_4x6.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="joy.c">
       <SubType>compile</SubType>
     </Compile>
@@ -128,6 +131,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mem.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="oled.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="oled.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart.c">

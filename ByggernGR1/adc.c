@@ -13,6 +13,11 @@ INT0_vect(){
 }
 
 void adc_init(){
+	//Enable ext ram:
+	MCUCR |= (1 << SRE);
+	//Mask out pins PC7-PC4:
+	SFIOR |= (1 << XMM2);
+	
 	//Enable INT0:
 	GICR |= (1 << INT0);
 	//Enable global interrupts:
