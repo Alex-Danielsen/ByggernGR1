@@ -9,21 +9,25 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+typedef void (*menuAction)(void);
+
+//STRUCTS/ENUMS:
 typedef struct menu_t menu_t;
-
-//Menu struct:
 struct menu_t{
-	menu_t* parrent;
+	menu_t* parent;
 	char name[20];
-	uint8_t numOfChilds;
+	uint8_t numOfChildren;
 	menu_t** child;
+	menuAction action;
 };
-//Functions:
-void menu_init(); //Completed
 
-void menu_openMenu(menu_t* arg); //Completed
+//FUNCTIONS::
+void menu_init();
 
-void menu_printIndicator(uint8_t row); //Completed
+void menu_openMenu(menu_t* arg);
 
+void menu_printIndicator(uint8_t row);
+
+void menu_displayJoyStats();
 
 #endif /* MENU_H_ */

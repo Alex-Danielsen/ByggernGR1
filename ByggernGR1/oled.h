@@ -37,7 +37,15 @@ void oled_printNewLine(); //Completed
 
 void oled_printCharPtr(char* string);
 
+void oled_printf(const char* fmt, ...) /*__attribute__((format (printf, 0, 1)))*/;
 
+uint8_t oled_getCurrentRow();
+
+void oled_clearAll();
+
+void oled_clearRestOfRowGivenRow(uint8_t row);
+
+void oled_clearRestOfRow();
 
 
 

@@ -72,7 +72,7 @@ void oled_init(){
 	oled_command(0x21);
 	
 	oled_command(0x20); //Set memory addressing mode to page addressing mode.
-	oled_command(0x02);
+	oled_command(0x00);
 	
 	oled_command(0xDB); //VCOM deselect level mode
 	oled_command(0x30);
@@ -133,6 +133,19 @@ void oled_clearRow(uint8_t row){
 	}
 }
 
+void oled_clearRestOfRowGivenRow(uint8_t row) {
+	oled_goToRow(row);
+	for(uint8_t i = currentColumn; i < 128; i++){
+		oled_data(0x00);
+	}
+}
+
+void oled_clearRestOfRow() {
+	for(uint8_t i = currentColumn; i < 128; i++){
+		oled_data(0x00);
+	}
+}
+
 void oled_goToColumn(uint8_t column){ 
 	uint8_t msb = column & 0b11110000;
 	msb /= 0b10000;
@@ -185,5 +198,25 @@ void oled_printChar(char character){
 		}
 		
 		
+	}
+}
+
+
+static FILE oled_outf = FDEV_SETUP_STREAM(oled_printChar, NULL, _FDEV_SETUP_WRITE);
+
+void oled_printf(const char* fmt, ...){
+	va_list v;
+	va_start(v, fmt);
+	vfprintf(&oled_outf, fmt, v);
+	va_end(v);
+}
+
+uint8_t oled_getCurrentRow(){
+	return currentRow;
+}
+
+void oled_clearAll(){
+	for(uint8_t i = 0; i < 8; i++){
+		oled_clearRow(i);
 	}
 }

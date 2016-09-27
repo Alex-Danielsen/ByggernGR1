@@ -38,7 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../adc.c \
-../joy.c \
+../him.c \
 ../main.c \
 ../mem.c \
 ../menu.c \
@@ -54,7 +54,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 adc.o \
-joy.o \
+him.o \
 main.o \
 mem.o \
 menu.o \
@@ -63,7 +63,7 @@ uart.o
 
 OBJS_AS_ARGS +=  \
 adc.o \
-joy.o \
+him.o \
 main.o \
 mem.o \
 menu.o \
@@ -72,7 +72,7 @@ uart.o
 
 C_DEPS +=  \
 adc.d \
-joy.d \
+him.d \
 main.d \
 mem.d \
 menu.d \
@@ -81,7 +81,7 @@ uart.d
 
 C_DEPS_AS_ARGS +=  \
 adc.d \
-joy.d \
+him.d \
 main.d \
 mem.d \
 menu.d \

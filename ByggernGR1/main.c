@@ -14,7 +14,7 @@
 #include "uart.h"
 #include "mem.h"
 #include "adc.h"
-#include "joy.h"
+#include "him.h"
 #include "oled.h"
 #include "menu.h"
 
@@ -32,15 +32,16 @@ int main(void)
 	UART_parsePrint();
 	mem_init();
 	oled_init();
-	//menu_init();
+	menu_init();
+	printf("Init complete\n");
+	him_joyInit();
 	
-	//Code:
-	//char* yolo = "haha";
-	//oled_printString("Yolo %i", 5);
-	oled_printCharPtr("YOLOFISH");
-	
+	//menu_displayJoyStats();
 	while(1)
 	{
+		menu_browseMenu();
+		
+		
 		
 	}
 	
