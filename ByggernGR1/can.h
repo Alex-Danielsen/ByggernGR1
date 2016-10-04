@@ -9,8 +9,17 @@
 #ifndef CAN_H_
 #define CAN_H_
 
+typedef struct {
+	uint16_t id; //Only support 8 bit addresses 
+	uint8_t length; //Only 4 least significant bits used
+	uint8_t data[8];
+} can_message;
+
+
 void can_init();
 
+void can_send(can_message*);
 
+can_message can_recieve();
 
 #endif /* CAN_H_ */

@@ -6,7 +6,7 @@
  */ 
 
 #include "spi.h"
-
+#include "MCP2515.h"
 
 
 void mcp_init(){
@@ -29,18 +29,26 @@ void mcp_init(){
 
 char mcp_read(char address){
 	PORTB &= !(1 << DDB4);
-	spi_transmit(0x03);
+	spi_transmit(MCP_READ);
 	spi_transmit(address);
-	spi_transmit(0x00);
+	spi_transmit(0x00); //Generate clock pulses to receive data
 	PORTB |= (1 << DDB4);
 	return SPDR;
 }
 
-void mcp_write(char address, char data){
+void mcp_write(char address, char data[], uint8_t length){
 	PORTB &= !(1 << DDB4);
-	spi_transmit(0x02);
+	spi_transmit(MCP_WRITE);
 	spi_transmit(address);
-	spi_transmit(data);
+	for(uint8_t i = 0; i < 4; i++){
+		spi_transmit(0x00);
+	}
+	
+	spi_transmit(length);	
+	
+	for(uint8_t i = 0; i < length; i++){
+		spi_transmit(data[i]);
+	}
 	PORTB |= (1 << DDB4);
 	
 }
@@ -57,7 +65,7 @@ void mcp_requestSend(uint8_t transmitBuffers){
 
 char mcp_readStatus(){
 	PORTB &= !(1 << DDB4);
-	spi_transmit(0xA0); //command to read status
+	spi_transmit(MCP_READ_STATUS); //command to read status
 	spi_transmit(0x00); //anything - just send something to get info back on the bus
 	PORTB |= (1 << DDB4);
 	return SPDR;
@@ -65,7 +73,7 @@ char mcp_readStatus(){
 
 void mcp_bitModify(char address, char mask, char data){
 	PORTB &= !(1 << DDB4);
-	spi_transmit(0x05);
+	spi_transmit(MCP_BITMOD);
 	spi_transmit(address);
 	spi_transmit(mask);
 	spi_transmit(data);
@@ -74,6 +82,6 @@ void mcp_bitModify(char address, char mask, char data){
 
 void mcp_reset(){
 	PORTB &= !(1 << DDB4);
-	spi_transmit(0xC0);
+	spi_transmit(MCP_RESET);
 	PORTB |= (1 << DDB4);
 }

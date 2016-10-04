@@ -14,12 +14,12 @@ void can_init(){
 	mcp_bitModify(0x0F, 0b11100000, 0b01000000);
 }
 
-void can_send(can_message* message){
-	uint8_t len = message->length & 0x0F
+void can_send(can_message *message){
+	uint8_t len = message->length & 0x0F;
 	
-	mcp_write(TXB1S, message->data, len)
+	mcp_write(MCP_TXB0SIDH, message->data, len);
 	
-	
+	mcp_requestSend(1);
 }
 
 can_message can_recieve(){

@@ -27,6 +27,7 @@
 
 int main(void)
 {	
+	can_message newMessage;
 	//Initialization:
 	UART_init(MYUBRR);
 	UART_parsePrint();
