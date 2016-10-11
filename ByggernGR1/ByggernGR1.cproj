@@ -142,6 +142,9 @@
     <Compile Include="MCP2515.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCP2515_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mem.c">
       <SubType>compile</SubType>
     </Compile>

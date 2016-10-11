@@ -9,13 +9,18 @@
 #ifndef CAN_H_
 #define CAN_H_
 
+//---LIBRARIES---
+#include <avr/io.h>
+
+//---TYPEDEFS---
+//CAN message struct:
 typedef struct {
 	uint16_t id; //Only support 8 bit addresses 
 	uint8_t length; //Only 4 least significant bits used
-	uint8_t data[8];
+	char data[8];
 } can_message;
 
-
+//---FUNCTIONS---
 void can_init();
 
 void can_send(can_message*);

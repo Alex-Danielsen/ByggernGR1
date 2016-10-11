@@ -9,11 +9,11 @@
 #ifndef MEM_H_
 #define MEM_H_
 
+//---FUNCTIONS---
 void mem_init();
 
 void mem_test();
 
 void mem_testLatch();
-
 
 #endif /* MEM_H_ */

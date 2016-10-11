@@ -6,6 +6,7 @@
  */ 
 
 
+
 #include <avr/io.h>
 
 void UART_init(int ubrr){
@@ -37,22 +38,15 @@ void UART_transmit(unsigned char arg){
 	UDR0 = arg;
 }
 
-
 void UART_parsePrint(){
 	fdevopen(UART_transmit, UART_recieve);
 }
 
-
 void UART_test(){
 	DDRA |= (1 << DDA0);
-	//PORTA |= (1 << DDA0);
 	char temp = 'a';
-	//D
 	while(1)
 	{
-		//TODO:: Please write your application code
-		//printf("Hello world!");
-	
 		temp = UART_recieve();
 		switch(temp){
 		

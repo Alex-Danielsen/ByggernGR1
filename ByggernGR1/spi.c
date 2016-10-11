@@ -9,12 +9,16 @@
 void spi_init(){
 	// set data direction on SPI pins
 	DDRB |= (1 << DDB5)|(1 << DDB7);
-	// Enable SPI
-	SPCR |= (1 << SPE);
+	
+	DDRB |= (1 << DDB4);
+	PORTB |= (1 << DDB4);
+	
 	// Set mode to "Master"
 	SPCR |= (1 << MSTR);
 	// Set clock rate to fck/16
 	SPCR |= (1 << SPR0);
+	// Enable SPI
+	SPCR |= (1 << SPE);
 	
 }
 
@@ -26,8 +30,12 @@ void spi_transmit(char data){
 	SPDR = data;
 	
 	// Checks transmission complete flag
-	while(!SPSR & (1 << SPIF)){}
+	while(!(SPSR & (1 << SPIF))){}
 	
+}
+
+char spi_read() {
+	return SPDR;
 }
 
 

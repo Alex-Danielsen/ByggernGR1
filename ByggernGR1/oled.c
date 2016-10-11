@@ -20,9 +20,7 @@ uint8_t currentRow, currentColumn;
 //const unsigned char* font = (unsigned char*)font_4x6;
 uint8_t charWidth = 4;
 
-#define BUFFERLENGTH 50
 
-char buffer[BUFFERLENGTH];
 
 
 
@@ -98,28 +96,7 @@ void oled_init(){
 	
 }
 
-void oled_printCharPtr(char* string)
-{
-	for(uint8_t i = 0; i < strlen(string); i++){
-		oled_printChar(buffer[i]);
-	}
-}
 
-
-void oled_printString(const char *format, ...){ //NOT WORKING
-
-	va_list args;
-	va_start(args, format);
-
-	sprintf(buffer, format, args);
-	
-	va_end(args);
-	
-	for(uint8_t i = 0; i < strlen(buffer); i++){
-		oled_printChar(buffer[i]);
-	}
-	
-}
 
 void oled_goToRow(uint8_t row){
 	oled_command(0xB0 + row);
@@ -219,4 +196,34 @@ void oled_clearAll(){
 	for(uint8_t i = 0; i < 8; i++){
 		oled_clearRow(i);
 	}
+}
+
+
+//I DONT THINK WE USE THESE?
+
+#define BUFFERLENGTH 50
+
+char buffer[BUFFERLENGTH];
+
+void oled_printCharPtr(char* string)
+{
+	for(uint8_t i = 0; i < strlen(string); i++){
+		oled_printChar(buffer[i]);
+	}
+}
+
+
+void oled_printString(const char *format, ...){ //NOT WORKING
+
+	va_list args;
+	va_start(args, format);
+
+	sprintf(buffer, format, args);
+	
+	va_end(args);
+	
+	for(uint8_t i = 0; i < strlen(buffer); i++){
+		oled_printChar(buffer[i]);
+	}
+	
 }

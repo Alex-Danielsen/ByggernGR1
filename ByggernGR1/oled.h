@@ -9,35 +9,33 @@
 #ifndef OLED_H_
 #define OLED_H_
 
+//---LIBRARIES---
 #include <stdint.h>
 
-void oled_init(); //Completed
+//---FUNCTIONS---
+void oled_init();
 
-void oled_reset(); //Completed
+void oled_reset();
 
-void oled_goHome(); //Completed
+void oled_goHome();
 
-void oled_goToRow(uint8_t row); //Completed
+void oled_goToRow(uint8_t row);
 
-void oled_goToColumn(uint8_t column); //Completed
+void oled_goToColumn(uint8_t column);
 
-void oled_clearRow(uint8_t Row); //Completed
+void oled_clearRow(uint8_t Row);
 
-void oled_goToPos(uint8_t row, uint8_t column); //Completed
+void oled_goToPos(uint8_t row, uint8_t column);
 
-void oled_printChar(char character); //Completed
+void oled_printChar(char character);
 
-void oled_printString(const char *format, ...); //Completed NOT WORKING
+void oled_command(uint8_t c);
 
-void oled_command(uint8_t c); //Completed
+void oled_data(uint8_t d);
 
-void oled_data(uint8_t d); //Completed
+void oled_printNewLine();
 
-void oled_printNewLine(); //Completed
-
-void oled_printCharPtr(char* string);
-
-void oled_printf(const char* fmt, ...) /*__attribute__((format (printf, 0, 1)))*/;
+void oled_printf(const char* fmt, ...);
 
 uint8_t oled_getCurrentRow();
 
@@ -47,10 +45,8 @@ void oled_clearRestOfRowGivenRow(uint8_t row);
 
 void oled_clearRestOfRow();
 
+void oled_printCharPtr(char* string); //NOT IN USE?
 
-
-
-
-
+void oled_printString(const char *format, ...); //NOT IN USE?
 
 #endif /* OLED_H_ */

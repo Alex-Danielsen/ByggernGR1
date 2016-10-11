@@ -9,6 +9,7 @@
 #ifndef JOY_H_
 #define JOY_H_
 
+//---TYPEDEFS---
 //Struct for joystick values:
 typedef struct {
 	int8_t x;
@@ -24,13 +25,14 @@ typedef enum {
 	NEUTRAL
 } him_joyDir;
 
-//Enum for buttons on USB Board
+//Enum for buttons on USB Board:
 typedef enum {
 	leftTouchButton,
 	rightTouchButton,
 	joyButton
 } him_buttons;
 
+//---FUNCTIONS---
 void him_joyInit();
 
 void him_joyCal();
@@ -42,8 +44,11 @@ him_joyPos him_getJoyPos();
 him_joyDir him_getJoyDir();
 
 int him_getLeftSlider();
+
 int him_getRightSlider();
 
 him_joyDir him_getPreviousDir();
+
+void him_setPreviousDir(him_joyDir dir);
 
 #endif /* JOY_H_ */

@@ -9,13 +9,11 @@
 #ifndef SPI_H_
 #define SPI_H_
 
+//---FUNCTIONS---
 void spi_init();
 
 void spi_transmit(char data);
 
-
-
-
-
+char spi_read();
 
 #endif /* SPI_H_ */

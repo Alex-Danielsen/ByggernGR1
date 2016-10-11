@@ -9,9 +9,8 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+//---TYPEDEFS---
 typedef void (*menuAction)(void);
-
-//STRUCTS/ENUMS:
 typedef struct menu_t menu_t;
 struct menu_t{
 	menu_t* parent;
@@ -21,7 +20,7 @@ struct menu_t{
 	menuAction action;
 };
 
-//FUNCTIONS::
+//---FUNCTIONS---
 void menu_init();
 
 void menu_openMenu(menu_t* arg);
@@ -29,5 +28,7 @@ void menu_openMenu(menu_t* arg);
 void menu_printIndicator(uint8_t row);
 
 void menu_displayJoyStats();
+
+void menu_browseMenu();
 
 #endif /* MENU_H_ */

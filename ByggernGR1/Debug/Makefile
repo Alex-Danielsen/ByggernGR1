@@ -38,11 +38,14 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../adc.c \
+../can.c \
 ../him.c \
 ../main.c \
+../mcp.c \
 ../mem.c \
 ../menu.c \
 ../oled.c \
+../spi.c \
 ../uart.c
 
 
@@ -54,38 +57,50 @@ ASM_SRCS +=
 
 OBJS +=  \
 adc.o \
+can.o \
 him.o \
 main.o \
+mcp.o \
 mem.o \
 menu.o \
 oled.o \
+spi.o \
 uart.o
 
 OBJS_AS_ARGS +=  \
 adc.o \
+can.o \
 him.o \
 main.o \
+mcp.o \
 mem.o \
 menu.o \
 oled.o \
+spi.o \
 uart.o
 
 C_DEPS +=  \
 adc.d \
+can.d \
 him.d \
 main.d \
+mcp.d \
 mem.d \
 menu.d \
 oled.d \
+spi.d \
 uart.d
 
 C_DEPS_AS_ARGS +=  \
 adc.d \
+can.d \
 him.d \
 main.d \
+mcp.d \
 mem.d \
 menu.d \
 oled.d \
+spi.d \
 uart.d
 
 OUTPUT_FILE_PATH +=ByggernGR1.elf
@@ -102,6 +117,12 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
 
 
 

@@ -4,15 +4,21 @@
 
 adc.c
 
+can.c
+
 him.c
 
 main.c
+
+mcp.c
 
 mem.c
 
 menu.c
 
 oled.c
+
+spi.c
 
 uart.c
 

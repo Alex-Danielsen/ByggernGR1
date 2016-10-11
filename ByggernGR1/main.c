@@ -17,6 +17,9 @@
 #include "him.h"
 #include "oled.h"
 #include "menu.h"
+#include "can.h"
+#include "mcp.h"
+#include "spi.h"
 
 //Defined values
 #define FOSC 4915200
@@ -27,7 +30,12 @@
 
 int main(void)
 {	
-	can_message newMessage;
+	
+	volatile can_message newMessage = {
+		.id = 0x00, 
+		.length = 4,
+		.data = "hei",
+	};
 	//Initialization:
 	UART_init(MYUBRR);
 	UART_parsePrint();
@@ -36,11 +44,25 @@ int main(void)
 	menu_init();
 	printf("Init complete\n");
 	him_joyInit();
+	can_init();
+	//spi_transmit(4);
+	
+	//test can transmit
+	can_send(&newMessage);
+	_delay_ms(10);
+	volatile can_message recMessage = can_recieve();
+	printf("%s\n",&(recMessage.data));
 	
 	//menu_displayJoyStats();
 	while(1)
 	{
-		menu_browseMenu();
+		//menu_browseMenu();
+		
+		spi_transmit(0x55);
+		_delay_ms(10);
+		spi_transmit(0);
+		_delay_ms(10);
+		
 		
 		
 		

@@ -12,9 +12,6 @@ void mem_init(){
 	
 	//Mask out pins PC7-PC4:
 	SFIOR |= (1 << XMM2);
-	
-	
-	
 }
 
 void mem_test(){

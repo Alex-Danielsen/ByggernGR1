@@ -9,11 +9,12 @@
 #ifndef MCP_H_
 #define MCP_H_
 
+//---FUNCTIONS---
 void mcp_init();
 
 char mcp_read(char address);
 
-void mcp_write(char address, char data);
+void mcp_write(char address, char data, uint8_t length);
 
 void mcp_requestSend();
 
@@ -22,6 +23,5 @@ char mcp_readStatus();
 void mcp_bitModify(char address, char mask, char data);
 
 void mcp_reset();
-
 
 #endif /* MCP_H_ */
