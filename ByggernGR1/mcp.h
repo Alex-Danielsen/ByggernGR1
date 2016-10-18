@@ -14,7 +14,7 @@ void mcp_init();
 
 char mcp_read(char address);
 
-void mcp_write(char address, char data, uint8_t length);
+void mcp_write(char address, char data);
 
 void mcp_requestSend();
 

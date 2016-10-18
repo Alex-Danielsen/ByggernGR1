@@ -29,7 +29,7 @@ void mcp_init(){
 
 
 char mcp_read(char address){
-	PORTB &= !(1 << DDB4);
+	PORTB &= ~(1 << DDB4);
 	spi_transmit(MCP_READ);
 	spi_transmit(address);
 	spi_transmit(0x00); //Generate clock pulses to receive data
@@ -37,35 +37,27 @@ char mcp_read(char address){
 	return spi_read();
 }
 
-void mcp_write(char address, char data[], uint8_t length){
-	PORTB &= !(1 << DDB4);
+void mcp_write(char address, char data){
+	PORTB &= ~(1 << DDB4);  
 	spi_transmit(MCP_WRITE);
 	spi_transmit(address);
-// 	for(uint8_t i = 0; i < 4; i++){
-// 		spi_transmit(0x00);
-// 	}
-// 	
-// 	spi_transmit(length);	
-	
-	for(uint8_t i = 0; i < length; i++){
-		spi_transmit(data[i]);
-	}
+	spi_transmit(data);
 	PORTB |= (1 << DDB4);
 	
 }
 
 void mcp_requestSend(uint8_t transmitBuffers){ 
-	//transmit buffers individual bits decides which buffers to use
+	//transmitBuffers individual bits decides which buffers to use
 	//For example, 111 uses all of the bits, while 000 uses none
 	//order is TB2, TB1, TB0
-	PORTB &= !(1 << DDB4);
+	PORTB &= ~(1 << DDB4);
 	uint8_t instruction = 0x80+transmitBuffers; //convert to correct instruction format: 10000(TB2)(TB1)(TB0) 
-	spi_transmit(instruction);
+	spi_transmit(0b10000001);
 	PORTB |= (1 << DDB4);
 }
 
 char mcp_readStatus(){
-	PORTB &= !(1 << DDB4);
+	PORTB &= ~(1 << DDB4);
 	spi_transmit(MCP_READ_STATUS); //command to read status
 	spi_transmit(0x00); //anything - just send something to get info back on the bus
 	PORTB |= (1 << DDB4);
@@ -73,7 +65,7 @@ char mcp_readStatus(){
 }
 
 void mcp_bitModify(uint8_t address, uint8_t mask, char data){
-	PORTB &= !(1 << DDB4);
+	PORTB &= ~(1 << DDB4);
 	spi_transmit(MCP_BITMOD);
 	spi_transmit(address);
 	spi_transmit(mask);
@@ -82,7 +74,7 @@ void mcp_bitModify(uint8_t address, uint8_t mask, char data){
 }
 
 void mcp_reset(){
-	PORTB &= !(1 << DDB4);
+	PORTB &= ~(1 << DDB4);
 	spi_transmit(MCP_RESET);
 	_delay_ms(10);
 	PORTB |= (1 << DDB4);
