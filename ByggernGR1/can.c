@@ -14,7 +14,6 @@
 void can_init(){
 	 mcp_init();
 
-	 
 	 //turn off rollover mode
 	 mcp_bitModify(MCP_RXB0CTRL, MCP_ROLLOVER_OFF,0x04);
 	 //set interrupts to fire
@@ -24,9 +23,18 @@ void can_init(){
 	//Input descriptions: ADress of register, mask (first 3 bits), mode
 	mcp_bitModify(MCP_CANCTRL, MODE_MASK ,MODE_NORMAL);
 	
-	volatile uint8_t canStat = mcp_read(MCP_CANSTAT);	 
-	printf("Current CAN mode = %d\n", canStat);
-	
+		uint8_t canStat = mcp_read(MCP_CANSTAT);
+		switch (canStat & MODE_MASK){
+			case MODE_NORMAL:
+			printf("\nCAN is in Normal Mode: %d.\n", canStat);
+			break;
+			case MODE_LOOPBACK:
+			printf("\nCAN is in Loopback Mode: %d.\n", canStat);
+			break;
+			case MODE_CONFIG:
+			printf("\nCAN is in Config Mode: %d.\n", canStat);
+			break;
+		}
 }
 
 
@@ -44,6 +52,7 @@ void can_send(can_message *message){
 	
 	
 	mcp_requestSend(1);
+	printf("Sent a message over CAN\n");
 }
 
 can_message can_recieve(){
@@ -67,7 +76,12 @@ can_message can_recieve(){
 	return message;
 }
 
-// can_message* myMessage;
-// myMessage->id = 0;
-// myMessage->length = 8;
-// myMessage->data = [1, 0, 2, 0, 0, 0, 0, 0];
+void can_sendJoyPos(uint8_t x, uint8_t y){
+	can_message xyMessage = {
+		.id = 0x00,
+		.length = 2,
+		.data[0] = x,
+		.data[1] = y,
+	};
+	can_send(&xyMessage);
+}

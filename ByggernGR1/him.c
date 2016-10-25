@@ -29,8 +29,8 @@ void him_joyCal(){
 him_joyPos him_getJoyPos(){
 	him_joyPos arg;
 	
-	arg.x = (adc_read(1) - xInitPos) * 100 / xInitPos;
-	arg.y = (adc_read(2) - yInitPos) * 100 / yInitPos;
+	arg.x = (adc_read(1));// - xInitPos) * 100 / xInitPos;
+	arg.y = (adc_read(2));// - yInitPos) * 100 / yInitPos;
 	
 	return arg;
 }
@@ -38,19 +38,20 @@ him_joyPos him_getJoyPos(){
 
 him_joyDir him_getJoyDir(){
 	him_joyPos arg = him_getJoyPos();
-	
-	if( abs(arg.x) < 30 && abs(arg.y) < 30){return NEUTRAL;}
-	else if (abs(arg.x) < 95 && abs(arg.y) < 95 || 
-			(abs(arg.x) > 80 && abs(arg.y) > 80))
+	int8_t newArgY =  (arg.y - yInitPos) * 100 / yInitPos;
+	int8_t newArgX = (arg.x - xInitPos) * 100 / xInitPos;
+	if( abs(newArgX) < 30 && abs(newArgY) < 30){return NEUTRAL;}
+	else if (abs(newArgX) < 95 && abs(newArgY) < 95 || 
+			(abs(newArgX) > 80 && abs(newArgY) > 80))
 			{return previousJoyDir;}
 		
-	if(abs(arg.x)>abs(arg.y)){
+	if(abs(newArgX)>abs(newArgY)){
 		if(arg.x > 0){return RIGHT;}
 		else{return LEFT;}
 	}
 	
 	else{
-		if(arg.y > 0){return UP;}
+		if(newArgY > 0){return UP;}
 		else{return DOWN;}
 	}
 }

@@ -11,6 +11,7 @@
 #define F_CPU 4915200
 #include <avr/delay.h>
 #include <stdio.h>
+#include <avr/interrupt.h>
 
 //Include files:
 #include "uart.h"
@@ -29,12 +30,15 @@
 #define MYUBRR F_CPU/16/BAUD-1
 
 
+ISR(INT1_vect){
+	printf("Interrupt occurred...");
+	//volatile can_message recMessage = can_recieve();
+	//printf("X: %d, Y: %d\n",(recMessage.data[0]), (recMessage.data[1]));
+}
+
 
 int main(void)
 {	
-	
-	
-	
 	//Initialization:
 	UART_init(MYUBRR);
 	UART_parsePrint();
@@ -45,6 +49,15 @@ int main(void)
 	him_joyInit();
 	can_init();
 	
+	/*  BEGIN INITIALIZATION OF INTERRUPTS */
+	//Set to falling edge:
+	MCUCR |= (1 << ISC11);
+	//Enable interrupt on pin PD3:
+	GICR |= (1 << INT1);
+	//Enable interrupts - disable with cli()
+	sei();
+	/*  END INITIALIZATION OF INTERRUPTS */
+	
 	//BEGIN - CAN Transmit test:
 	 can_message newMessage = {
 		.id = 0x00,
@@ -54,8 +67,13 @@ int main(void)
 	
 	can_send(&newMessage);
 	_delay_ms(100);
-	volatile can_message recMessage = can_recieve();
-	printf("Data: %d\n",(recMessage.data[0]));
+	//volatile can_message recMessage = can_recieve();
+	//printf("Data: %d\n",(recMessage.data[0]));
 	//END - CAN Trasnmit test.
-	while(1){}	
+	
+	while(1){
+ 		can_sendJoyPos(him_getJoyPos().x, him_getJoyPos().y);
+ 		_delay_ms(10);
+
+	}	
 }
