@@ -59,21 +59,21 @@ int main(void)
 	/*  END INITIALIZATION OF INTERRUPTS */
 	
 	//BEGIN - CAN Transmit test:
-	 can_message newMessage = {
-		.id = 0x00,
-		.length = 1,
-		.data[0] = 23
-	};
-	
-	can_send(&newMessage);
-	_delay_ms(100);
+// 	 can_message newMessage = {
+// 		.id = 0x00,
+// 		.length = 1,
+// 		.data[0] = 23
+// 	};
+// 	
+// 	can_send(&newMessage);
+	//_delay_ms(100);
 	//volatile can_message recMessage = can_recieve();
 	//printf("Data: %d\n",(recMessage.data[0]));
 	//END - CAN Trasnmit test.
 	
 	while(1){
  		can_sendJoyPos(him_getJoyPos().x, him_getJoyPos().y);
- 		_delay_ms(10);
+ 		_delay_ms(50);
 
-	}	
+	}
 }
